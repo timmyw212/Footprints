@@ -4,6 +4,9 @@
     <title> Hoos Hikes </title>
   </head>
   <body>
-    <p> Website </p>
+    <h1 id="username"> </h1>
+    <script>
+      document.getElementById('username').innerHTML = (`Hello, ${sessionStorage.getItem('username')}!`);
+    </script>
   </body>
 </html>

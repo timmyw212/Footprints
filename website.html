@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="styles.css" rel="stylesheet">
     <title> Hoos Hikes </title>
   </head>
   <body>
-    <h1 id="username"> </h1>
-    <script>
-      document.getElementById('username').innerHTML = (`Hello, ${sessionStorage.getItem('username')}!`);
-    </script>
+
+    <div id="main-info-container">
+      <div class="card" id="user-info-card">
+        <h1 id="username"> </h1>
+      </div>
+      <div class="sub-info-container">
+        <!-- Distance Traveled Card -->
+        <div class="card info">
+          <h2>Distance Traveled</h2>
+          <span id="distance-traveled-output" class="info-output">sample</span>
+        </div>
+        <!-- Total Amount of Points -->
+        <div class="card info">
+          <h2>Total Points</h2>
+          <span id="total-points-output" class="info-output">sample</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card challenges-card">
+      <h2 id="challenges-header">Challenges</h2>
+      <div class="challenges">
+        <span id="daily-challenge-output">Filler</span>
+        <span id="weekly-challenge-output">Filler</span>
+        <span id="yearly-challenge-output">Filler</span>
+      </div>
+    </div>
   </body>
+  <script>
+    document.getElementById('username').innerHTML = (`Hello, ${sessionStorage.getItem('username')}!`);
+  </script>
 </html>

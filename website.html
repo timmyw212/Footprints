@@ -19,7 +19,7 @@
         <!-- Total Amount of Points -->
         <div class="card info">
           <h2>Total Points</h2>
-          <span id="total-points-output" class="info-output">sample</span>
+          <span id="total-points-output" class="info-output"></span>
         </div>
       </div>
     </div>
@@ -46,6 +46,9 @@
       else {
         totalPts = localStorage.getItem(user.username);
       }
+
+      document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
+
       function calculatePoints(firstpt) {
         document.getElementById('total-points-output').innerHTML = (`${firstpt}`);
       }      

@@ -32,8 +32,22 @@
         <span id="yearly-challenge-output">Filler</span>
       </div>
     </div>
-  </body>
-  <script>
-    document.getElementById('username').innerHTML = (`Hello, ${sessionStorage.getItem('username')}!`);
-  </script>
+    <script>
+      const user = {
+        username: sessionStorage.getItem('username'),
+        totalPts: 0
+      }
+
+      document.getElementById('username').innerHTML = (`Hello, ${user.username}!`);
+
+      if(!localStorage.getItem(user.username)) {
+        localStorage.setItem(user.username, 0);
+      }
+      else {
+        totalPts = localStorage.getItem(user.username);
+      }
+      function calculatePoints(firstpt) {
+        document.getElementById('total-points-output').innerHTML = (`${firstpt}`);
+      }      
+    </script>
 </html>

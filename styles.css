@@ -1,7 +1,7 @@
 :root{
     --dark-clr: #283618;
     --light-clr: #fff;
-    --primary-clr: #90E39A;
+    --primary-clr: #5bc467; /*90E39A*/
     --success-clr: #259DD0;
     --danger-clr: #B3001B;
 }

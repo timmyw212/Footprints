@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Hoos Hike </title>
+  </head>
+  <body>
+    <input type="text" id="Username" placeholder="Enter your username">
+    <input type="button" value="Enter" onclick="
+      sessionStorage.setItem('username', document.getElementById('Username').value);
+      const username = sessionStorage.getItem('username');
+      console.log(username);
+      change_page();
+    ">
+    <script>
+      function change_page(){
+        window.location.href = 'website.html'
+      }
+    </script>
+  </body>
+</html>

@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Hoos Hikes </title>
+    <title> Hoos Hike </title>
   </head>
   <body>
     <h1 id="username"> </h1>
+    <h2 id="pts"> </h2>
     <script>
-      document.getElementById('username').innerHTML = (`Hello, ${sessionStorage.getItem('username')}!`);
+      const user = {
+        username: sessionStorage.getItem('username'),
+        totalPts: 0
+      }
+
+      document.getElementById('username').innerHTML = (`Hello, ${user.username}!`);
+
+      if(!localStorage.getItem(user.username)) {
+        localStorage.setItem(user.username, 0);
+      }
+      else {
+        totalPts = localStorage.getItem(user.username);
+      }
+      function calculatePoints(firstpt) {
+        document.getElementById('pts').innerHTML = (`${firstpt}`);
+      }      
     </script>
   </body>
 </html>

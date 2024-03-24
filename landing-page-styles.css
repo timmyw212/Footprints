@@ -1,0 +1,100 @@
+:root{
+    --dark-clr: #181916;
+    --dark-2-clr: #53564D;
+    --light-clr: #F5F5F5;
+    --primary-clr: #5bc467; /*90E39A*/
+    --success-clr: #259DD0;
+    --success-light-clr: #52B6E0;
+    --danger-clr: #B3001B;
+}
+
+/* Browser Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  /* Styling */
+
+body{
+    background-image: url('forest.jpeg');
+    width: 100%; height: 100vh; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    font-family:"Inconsolata"
+}
+
+h1{
+    font-family: "Karla";
+}
+
+.logo {
+    margin: auto;
+}
+  
+.login-container {
+    text-align: center;
+    background-color: var(--light-clr);
+    border-radius:10px;
+    width:80%;
+    max-width:700px;
+    margin:auto;
+    padding: 1em;
+}
+
+input{
+    width:80%;
+    margin:10px;
+}
+
+#input-container{
+    margin-top: 20px;
+}
+
+#Username{
+    border:none;
+    border-bottom: 2px solid var(--primary-clr);
+    height:2.5em;
+    padding:10px;
+}
+
+#Username:focus{
+    outline:none;
+}
+
+#button{
+    background-color:var(--success-clr);
+    border: none;
+    color: var(--light-clr);
+    height: 2.5em;
+}
+
+#button:hover{
+    background-color:var(--success-light-clr);;
+    cursor:pointer
+}

@@ -1,8 +1,10 @@
 :root{
-    --dark-clr: #283618;
-    --light-clr: #fff;
+    --dark-clr: #181916;
+    --dark-2-clr: #53564D;
+    --light-clr: #F5F5F5;
     --primary-clr: #5bc467; /*90E39A*/
     --success-clr: #259DD0;
+    --success-light-clr: #52B6E0;
     --danger-clr: #B3001B;
 }
 
@@ -40,15 +42,18 @@
  /* Styling */
 
  body{
-    background: var(--light-clr);
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- }
+    background-image: url('forest.jpeg');
+    width: 100%; height: 100%; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    font-family: "Karla"
+  }
 
 .sub-info-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     justify-content:space-evenly;
-    gap:10px;
+    gap:0px;
 }
 
 .info{
@@ -58,58 +63,104 @@
 }
 
 .info-output{
-    border-top: 2px solid var(--light-clr);
+    color: var(--primary-clr);
     font-size:5rem;
+    font-family: "Inconsolata";
 }
 
 .card{
-    background: var(--primary-clr);
-    color:var(--light-clr);
-    margin:2em;
+    background: var(--light-clr);
+    color:var(--dark-clr);
+    margin:1em;
     padding:10px;
     /* height:300px; */
 }
 
+button{
+  background-color:var(--success-clr);
+  border: none;
+  border-radius: 20px;
+  padding: 0 1em;
+  color: var(--light-clr);
+  height: 30px;
+}
 
+button:hover{
+  background-color:var(--success-light-clr);;
+  cursor:pointer
+}
+
+hr{
+  border: solid 1px var(--dark-2-clr)
+}
 
 .challenges-card{
     display:grid;
     align-items:center;
-    grid-template-columns: repeat(2,50%);
+    grid-template-columns: repeat(2,1fr);
+    padding:2rem;
 }
 
 #challenges-header{
     font-size:4rem;
     text-align: center;
+    font-family: "Karla"
 }
 
-.challenges{
+.challenges-container{
     display:flex;
     flex-direction:column;
     font-size: 2rem;
     text-align: center;
+    margin:1em;
 }
 
 .challenge {
   display: flex;
   flex-direction: column;
-  border: solid;
 }
+
+.challenge-title{
+  text-align:center;
+  font-size:1.75rem;
+}
+
 .task {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  text-align: left;
 }
 .task-words {
-  font-size: 25px;
+  margin: 0 5px;
+  font-size: 1.5rem;
+  font-family: "Inconsolata"
 }
 .completion-button {
-  font-size: 15px;
+  font-size: 1rem;
+}
+
+@media (max-width:700px) {
+  .challenges-card{
+    display:flex;
+    flex-direction:column;
+  }
+  .challenge-title{
+    font-size:1.5rem;
+  }
+  .completion-button{
+    font-size: .9rem;
+  }
+  .task-words {
+    font-size: 1.25rem;
+  }
 }
 
 .fileUpload {
-  margin-left: 650px;
+  width:fit-content;
+  text-align:center;
+  margin:auto;
   color: white; 
 }
 
@@ -122,10 +173,12 @@
   padding-top: 30px;
   color: black;
 }
+
 .logo {
-  margin-left: 515px;
+  margin: auto;
+  width:200px;
 }
 
-.input-bar {
-  text-align: center;
+@media (max-width:700px) {
+  
 }

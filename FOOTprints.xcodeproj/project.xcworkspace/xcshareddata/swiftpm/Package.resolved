@@ -1,13 +1,13 @@
 {
-  "originHash" : "1766aeaa4acc33f51d4721e47b2c6baa3fd79fb263a4ecce86c0c021e05d81cc",
+  "originHash" : "bdbfd488c1fb6cfe221f608f6da1aadc318422e2d5c63e4744d07d9b29d92ed1",
   "pins" : [
     {
-      "identity" : "aws-sdk-ios-spm",
+      "identity" : "codablefiles",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm",
+      "location" : "https://github.com/egzonpllana/CodableFiles.git",
       "state" : {
-        "revision" : "8ff8bebfe24271f7b16c5abaeb78daf82bee3a80",
-        "version" : "2.34.2"
+        "revision" : "61d5a7f515a4b79cb0911cc5cd876b9d50a58b23",
+        "version" : "1.1.1"
       }
     }
   ],

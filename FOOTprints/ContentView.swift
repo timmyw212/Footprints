@@ -8,11 +8,19 @@
 import MapKit
 import SwiftUI
 import CoreLocation
+import CodableFiles
 
 struct ContentView: View {
     @StateObject var manager = LocationManager()
+
+    let codableFiles = CodableFiles.shared
+    @State var fileName = "Users"
+    @State var user = User()
+    @State var pos1 = CLLocationCoordinate2D()
+    @State var pos2 = CLLocationCoordinate2D()
+    @State var dist = Double()
     
-    @State var tracking = false
+    @State var tracking = true
     
     var body: some View {
         ZStack {
@@ -34,7 +42,10 @@ struct ContentView: View {
                     .padding()
                 Spacer()
                 Button {
-                    
+                    user = User(name: "Tim", distanceTraveled: 0)
+                    tracking = false
+                    pos1 = manager.region.center
+                    print(pos1)
                 }
             label: {Text("Start Trackering")
                     .fontWeight(.bold)
@@ -42,11 +53,17 @@ struct ContentView: View {
             }
                 Spacer()
                 Button {
-                    
+                    pos2 = manager.region.center
+                    dist = pos1.distance(from: pos2)
+                    user.distanceTraveled = dist
+                    print(dist)
+                    try? codableFiles.save(user, withFilename: fileName)
+                    tracking = true
                 }
             label: {Text("Stop Tracking")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .font(.title2)
+                    .disabled(tracking)
                 
             }
                 Spacer()

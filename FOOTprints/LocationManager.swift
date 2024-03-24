@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import CodableFiles
 
 final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
@@ -15,8 +16,8 @@ final class LocationManager: NSObject, ObservableObject {
     @Published var trackingOver = false
     
     @Published var region = MKCoordinateRegion(
-        center: .init(latitude: 37.334_900, longitude: -122.009_020),
-        span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        center: .init(latitude: 38.034445, longitude: -78.512673),
+        span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
     
     override init() {
@@ -60,4 +61,16 @@ extension LocationManager: CLLocationManagerDelegate {
             )
         }
     }
+}
+
+extension CLLocationCoordinate2D {
+    func distance(from: CLLocationCoordinate2D) -> CLLocationDistance {
+        let destination=CLLocation(latitude:from.latitude,longitude:from.longitude)
+        return CLLocation(latitude: latitude, longitude: longitude).distance(from: destination)
+    }
+}
+
+struct User: Codable {
+    var name = ""
+    var distanceTraveled = 0.0
 }

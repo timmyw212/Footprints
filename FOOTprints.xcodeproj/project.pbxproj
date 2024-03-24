@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D652EE92BB02808006CA1E8 /* CodableFiles in Frameworks */ = {isa = PBXBuildFile; productRef = 4D652EE82BB02808006CA1E8 /* CodableFiles */; };
 		4DB4FC5C2BAF4ED300C927CC /* FOOTprintsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4FC5B2BAF4ED300C927CC /* FOOTprintsApp.swift */; };
 		4DB4FC5E2BAF4ED300C927CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4FC5D2BAF4ED300C927CC /* ContentView.swift */; };
 		4DB4FC602BAF4ED500C927CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DB4FC5F2BAF4ED500C927CC /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D652EE92BB02808006CA1E8 /* CodableFiles in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,9 @@
 			dependencies = (
 			);
 			name = FOOTprints;
+			packageProductDependencies = (
+				4D652EE82BB02808006CA1E8 /* CodableFiles */,
+			);
 			productName = roadtrip;
 			productReference = 4DB4FC582BAF4ED300C927CC /* FOOTprints.app */;
 			productType = "com.apple.product-type.application";
@@ -117,7 +122,7 @@
 			);
 			mainGroup = 4DB4FC4F2BAF4ED300C927CC;
 			packageReferences = (
-				4DB4FC6E2BAFF6AC00C927CC /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+				4D652EE72BB02808006CA1E8 /* XCRemoteSwiftPackageReference "CodableFiles" */,
 			);
 			productRefGroup = 4DB4FC592BAF4ED300C927CC /* Products */;
 			projectDirPath = "";
@@ -361,15 +366,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4DB4FC6E2BAFF6AC00C927CC /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+		4D652EE72BB02808006CA1E8 /* XCRemoteSwiftPackageReference "CodableFiles" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			repositoryURL = "https://github.com/egzonpllana/CodableFiles.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.34.2;
+				minimumVersion = 1.1.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D652EE82BB02808006CA1E8 /* CodableFiles */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D652EE72BB02808006CA1E8 /* XCRemoteSwiftPackageReference "CodableFiles" */;
+			productName = CodableFiles;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4DB4FC502BAF4ED300C927CC /* Project object */;
 }

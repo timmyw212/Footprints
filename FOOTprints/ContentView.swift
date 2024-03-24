@@ -16,6 +16,10 @@ struct ContentView: View {
     let codableFiles = CodableFiles.shared
     @State var fileName = "Users"
     @State var user = User()
+    
+    @State var travelMeth = Double()
+    @State var selection = true
+    
     @State var pos1 = CLLocationCoordinate2D()
     @State var pos2 = CLLocationCoordinate2D()
     @State var dist = Double()
@@ -50,20 +54,65 @@ struct ContentView: View {
             label: {Text("Start Trackering")
                     .fontWeight(.bold)
                     .font(.title2)
+                    .disabled(!tracking)
             }
+                Spacer()
+                HStack {
+                    Button {
+                        travelMeth = 4.0
+                        selection = false
+                    }
+                label: { Text("Walk")
+                        .font(.headline)
+                            .frame(minWidth: 0, maxWidth: 100, minHeight: 60, maxHeight: 60)
+                        .accentColor(.blue)
+                        .cornerRadius(30)
+}
+                    Button {
+                        travelMeth = 2.0
+                        selection = false
+                    }
+                label: { Text("Train")
+                        .font(.headline)
+                            .frame(minWidth: 0, maxWidth: 100, minHeight: 60, maxHeight: 60)
+                        .accentColor(.blue)
+                        .cornerRadius(30)}
+                    Button {
+                        travelMeth = 1.0
+                        selection = false
+                    }
+                label: { Text("Bus")
+                        .font(.headline)
+                            .frame(minWidth: 0, maxWidth: 100, minHeight: 60, maxHeight: 60)
+                        .accentColor(.blue)
+                        .cornerRadius(30)}
+                    Button {
+                        travelMeth = 0.5
+                        selection = false
+                    }
+                label: { Text("Car")
+                        .font(.headline)
+                            .frame(minWidth: 0, maxWidth: 100, minHeight: 60, maxHeight: 60)
+                        .accentColor(.blue)
+                        .cornerRadius(30)
+                        
+                }
+                }
                 Spacer()
                 Button {
                     pos2 = manager.region.center
                     dist = pos1.distance(from: pos2)
                     user.distanceTraveled = dist
+                    user.points = travelMeth
                     print(dist)
                     try? codableFiles.save(user, withFilename: fileName)
                     tracking = true
+                    selection = true
                 }
             label: {Text("Stop Tracking")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .font(.title2)
-                    .disabled(tracking)
+                    .disabled(tracking || selection)
                 
             }
                 Spacer()

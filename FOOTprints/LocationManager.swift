@@ -73,4 +73,5 @@ extension CLLocationCoordinate2D {
 struct User: Codable {
     var name = ""
     var distanceTraveled = 0.0
+    var points = 0.0
 }

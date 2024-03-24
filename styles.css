@@ -1,7 +1,7 @@
 :root{
     --dark-clr: #181916;
     --dark-2-clr: #53564D;
-    --light-clr: #F5F5F5;
+    --light-clr: #EBEBEB;
     --primary-clr: #5bc467; /*90E39A*/
     --success-clr: #259DD0;
     --success-light-clr: #52B6E0;
@@ -166,7 +166,7 @@ hr{
 
 .footer {
   margin-top: 20px;
-  background-color: rgb(255, 253, 208);
+  background-color: var(--light-clr);
   text-align: center;
 }
 .footer-words {
@@ -179,6 +179,6 @@ hr{
   width:200px;
 }
 
-@media (max-width:700px) {
-  
+.hidden{
+  display:none;
 }

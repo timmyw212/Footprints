@@ -18,14 +18,22 @@
       <p>Sustainable Living, One Point at a Time</p>
       <div id="input-container">
         <input type="text" id="Username" placeholder="Enter your username">
-        <input type="button" id="button" value="Enter" onclick="
-          sessionStorage.setItem('username', document.getElementById('Username').value);
-          const username = sessionStorage.getItem('username');
-          change_page();
+        <input type="button" id="button" value="Enter" onclick="enterUser()
         ">
       </div>
     </div>
     <script>
+      const enterUser = () => {
+
+        const inputValue = document.getElementById('Username').value
+          if(inputValue == null || inputValue.length < 1){
+            alert("Please Enter a Valid User");
+          } else {
+            sessionStorage.setItem('username', inputValue);
+            const username = sessionStorage.getItem('username');
+            change_page();
+          }
+      }
       function change_page(){
         window.location.href = 'website.html'
       }

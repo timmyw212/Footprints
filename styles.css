@@ -107,3 +107,25 @@
 .completion-button {
   font-size: 15px;
 }
+
+.fileUpload {
+  margin-left: 650px;
+  color: white; 
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: rgb(255, 253, 208);
+  text-align: center;
+}
+.footer-words {
+  padding-top: 30px;
+  color: black;
+}
+.logo {
+  margin-left: 515px;
+}
+
+.input-bar {
+  text-align: center;
+}

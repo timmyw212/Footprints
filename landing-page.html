@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="styles.css" rel="stylesheet">
     <title> Footprints </title>
   </head>
-  <body>
-    <input type="text" id="Username" placeholder="Enter your username">
-    <input type="button" value="Enter" onclick="
-      sessionStorage.setItem('username', document.getElementById('Username').value);
-      const username = sessionStorage.getItem('username');
-      change_page();
-    ">
+  <body class="bg-image" style="background-image: url('forest.jpeg'); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
+    <img class = "logo" src = "Footprints_bg.png">
+    <div class = "input-bar">
+      <input type="text" id="Username" placeholder="Enter your username">
+      <input type="button" value="Enter" onclick="
+        sessionStorage.setItem('username', document.getElementById('Username').value);
+        const username = sessionStorage.getItem('username');
+        change_page();
+      ">
+    </div>
     <script>
       function change_page(){
         window.location.href = 'website.html'

@@ -37,14 +37,14 @@
           "> Done </button>
           </div>
           <div class="task">
-            <p class="task-words"> Take the stairs instead of the elevator </p>
+            <p class="task-words"> Buy items from a farmer's market </p>
             <button class ="completion-button" id="button2" onclick="
               document.getElementById('button2').innerHTML = '&#x2714'
               completedDaily();
             "> Done </button>
           </div>
           <div class="task">
-            <p class="task-words"> Take the stairs instead of the elevator </p>
+            <p class="task-words"> Use a reusable bag at the store </p>
             <button class ="completion-button" id="button3" onclick="
             document.getElementById('button3').innerHTML = '&#x2714'
             completedDaily();
@@ -54,21 +54,21 @@
         <div class="challenge">
           <h3 class="challenge-title"> Weekly Challenges </h3>
           <div class="task">
-            <p class="task-words"> Take the stairs instead of the elevator </p>
+            <p class="task-words"> Compost 8 items </p>
             <button class ="completion-button" id="button4" onclick="
             document.getElementById('button4').innerHTML = '&#x2714'
             completedWeekly();
           "> Done </button>
           </div>
           <div class="task">
-            <p class="task-words"> Take the stairs instead of the elevator </p>
+            <p class="task-words"> Take public transit, walk, or bike for 10 miles </p>
             <button class ="completion-button" id="button5" onclick="
             document.getElementById('button5').innerHTML = '&#x2714'
             completedWeekly();
           "> Done </button>
           </div>
           <div class="task">
-            <p class="task-words"> Take the stairs instead of the elevator </p>
+            <p class="task-words"> Switch to LED light bulbs </p>
             <button class ="completion-button" id="button6" onclick="
             document.getElementById('button6').innerHTML = '&#x2714'
             completedWeekly();
@@ -76,6 +76,16 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class = "fileUpload">
+      <p> Insert your file here</p>
+      <input type="file" onchange="handleFileUpload(event)" placeholder="Place your file here" accept=".json">
+    </div>
+    <div class = "footer">
+      <p class = "footer-words">
+        Made by Kevin Bui, Timmy Wang, and Lakki Ropeta
+      </p>
+      <img class = "logo" src="Footprints_bg.png">
     </div>
     <script>
         const user = {
@@ -93,6 +103,8 @@
       }
 
       document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
+
+      document.getElementById('distance-traveled-output').innerHTML = ('0');
 
       function calculatePoints(distance, points) {
         totalPoints = distance * 0.000621371 * 100 * points;
@@ -115,23 +127,25 @@
         document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
       }
 
-      const fs = required('fs')
+      function readTheFile(filename){
+        const fs = required('fs')
       
-      fs.readFile('data.json', 'utf8', (err, jsonString) => {
-      if (err) {
-        console.log("Error reading file:", err);
-        return;
+        fs.readFile(filename, 'utf8', (err, jsonString) => {
+          if (err) {
+            console.log("Error reading file:", err);
+            return;
+          }
+          try {
+            const data = JSON.parse(jsonString);
+            const distance = data.distance;
+            const modeOfTransport = data.modeOfTransport;
+            user.totalPts = Number(user.totalPts) + calculatePoints(distance, modeOfTransport);
+            updateInfo(distance);
+          } catch(err) {
+              console.log('Error parsing JSON string:', err);
+          }
+          });
       }
-      try {
-        const data = JSON.parse(jsonString);
-        const distance = data.distance;
-        const modeOfTransport = data.modeOfTransport;
-        user.totalPts = Number(user.totalPts) + calculatePoints(distance, modeOfTransport);
-        updateInfo(distance);
-      } catch(err) {
-          console.log('Error parsing JSON string:', err);
-      }
-      });
 
       function updateInfo(distance){
         document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
@@ -141,6 +155,15 @@
         totalDistance = Number(document.getElementById('distance-distance-traveled-output').value()) + distance;
 
         document.getElementById('distance-distance-traveled-output').innerHTML = (`${totalDistance}`);
+      }
+
+      function handleFileUpload(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+
+        filename = file.name + "." + file.type;
+
+        readTheFile(filename);
       }
     </script>
 </html>

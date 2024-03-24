@@ -93,9 +93,17 @@
 .challenge {
   display: flex;
   flex-direction: column;
+  border: solid;
 }
 .task {
   display: flex;
   flex-direction: row;
-  
+  justify-content: space-around;
+  padding: 10px;
+}
+.task-words {
+  font-size: 25px;
+}
+.completion-button {
+  font-size: 15px;
 }

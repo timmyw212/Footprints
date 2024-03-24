@@ -31,30 +31,48 @@
           <h3 class="challenge-title"> Daily Challenges </h3>
           <div class="task">
             <p class="task-words"> Take the stairs instead of the elevator </p>
-            <button class ="completion-button"> Done </button>
+            <button class ="completion-button" id="button1" onclick="
+            document.getElementById('button1').innerHTML = '&#x2714'
+            completedDaily();
+          "> Done </button>
           </div>
           <div class="task">
             <p class="task-words"> Take the stairs instead of the elevator </p>
-            <button class ="completion-button"> Done </button>
+            <button class ="completion-button" id="button2" onclick="
+              document.getElementById('button2').innerHTML = '&#x2714'
+              completedDaily();
+            "> Done </button>
           </div>
           <div class="task">
             <p class="task-words"> Take the stairs instead of the elevator </p>
-            <button class ="completion-button"> Done </button>
+            <button class ="completion-button" id="button3" onclick="
+            document.getElementById('button3').innerHTML = '&#x2714'
+            completedDaily();
+          "> Done </button>
           </div>
         </div>
         <div class="challenge">
           <h3 class="challenge-title"> Weekly Challenges </h3>
           <div class="task">
             <p class="task-words"> Take the stairs instead of the elevator </p>
-            <button class ="completion-button"> Done </button>
+            <button class ="completion-button" id="button4" onclick="
+            document.getElementById('button4').innerHTML = '&#x2714'
+            completedWeekly();
+          "> Done </button>
           </div>
           <div class="task">
             <p class="task-words"> Take the stairs instead of the elevator </p>
-            <button class ="completion-button"> Done </button>
+            <button class ="completion-button" id="button5" onclick="
+            document.getElementById('button5').innerHTML = '&#x2714'
+            completedWeekly();
+          "> Done </button>
           </div>
           <div class="task">
             <p class="task-words"> Take the stairs instead of the elevator </p>
-            <button class ="completion-button"> Done </button>
+            <button class ="completion-button" id="button6" onclick="
+            document.getElementById('button6').innerHTML = '&#x2714'
+            completedWeekly();
+          "> Done </button>
           </div>
         </div>
         <div class="challenge">
@@ -79,8 +97,53 @@
 
       document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
 
-      function calculatePoints(firstpt) {
-        document.getElementById('total-points-output').innerHTML = (`${firstpt}`);
-      }      
+      function calculatePoints(distance, points) {
+        totalPoints = distance * 0.000621371 * 100 * points;
+        totalPoints = Math.round(distance);
+        return points;
+      }
+      
+      function completedDaily() {
+        localStorage.setItem(user.username, Number(user.totalPts) + 15);
+
+        user.totalPts= localStorage.getItem(user.username);
+        
+        document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
+      }
+
+      function completedWeekly() {
+        localStorage.setItem(user.username, Number(user.totalPts) + 100);
+        user.totalPts= localStorage.getItem(user.username);
+
+        document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
+      }
+
+      const fs = required('fs')
+      
+      fs.readFile('data.json', 'utf8', (err, jsonString) => {
+      if (err) {
+        console.log("Error reading file:", err);
+        return;
+      }
+      try {
+        const data = JSON.parse(jsonString);
+        const distance = data.distance;
+        const modeOfTransport = data.modeOfTransport;
+        user.totalPts = Number(user.totalPts) + calculatePoints(distance, modeOfTransport);
+        updateInfo(distance);
+      } catch(err) {
+          console.log('Error parsing JSON string:', err);
+      }
+      });
+
+      function updateInfo(distance){
+        document.getElementById('total-points-output').innerHTML = (`${user.totalPts}`);
+
+        distance = distance * 0.000621371;
+
+        totalDistance = Number(document.getElementById('distance-distance-traveled-output').value()) + distance;
+
+        document.getElementById('distance-distance-traveled-output').innerHTML = (`${totalDistance}`);
+      }
     </script>
 </html>
